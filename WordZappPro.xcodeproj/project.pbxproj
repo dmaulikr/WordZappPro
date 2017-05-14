@@ -18,6 +18,12 @@
 		E3DD1C351EC1466700E6F42D /* SoloViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DD1C341EC1466700E6F42D /* SoloViewController.m */; };
 		E3DD1C381EC1469B00E6F42D /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DD1C371EC1469B00E6F42D /* FindViewController.m */; };
 		E3DD1C3B1EC14AFB00E6F42D /* MCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DD1C3A1EC14AFB00E6F42D /* MCManager.m */; };
+		E3DD1C3E1EC8F4B200E6F42D /* GamePlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DD1C3D1EC8F4B200E6F42D /* GamePlayViewController.m */; };
+		E3DD1C421EC8FA9F00E6F42D /* easyList.txt in Resources */ = {isa = PBXBuildFile; fileRef = E3DD1C3F1EC8FA9F00E6F42D /* easyList.txt */; };
+		E3DD1C431EC8FA9F00E6F42D /* mediumList.txt in Resources */ = {isa = PBXBuildFile; fileRef = E3DD1C401EC8FA9F00E6F42D /* mediumList.txt */; };
+		E3DD1C441EC8FA9F00E6F42D /* hardList.txt in Resources */ = {isa = PBXBuildFile; fileRef = E3DD1C411EC8FA9F00E6F42D /* hardList.txt */; };
+		E3DD1C461EC8FAC300E6F42D /* wordlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = E3DD1C451EC8FAC300E6F42D /* wordlist.txt */; };
+		E3DD1C491EC8FBC600E6F42D /* WordSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DD1C481EC8FBC600E6F42D /* WordSelector.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +66,14 @@
 		E3DD1C371EC1469B00E6F42D /* FindViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FindViewController.m; path = ../FindViewController.m; sourceTree = "<group>"; };
 		E3DD1C391EC14AFB00E6F42D /* MCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCManager.h; sourceTree = "<group>"; };
 		E3DD1C3A1EC14AFB00E6F42D /* MCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCManager.m; sourceTree = "<group>"; };
+		E3DD1C3C1EC8F4B200E6F42D /* GamePlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlayViewController.h; sourceTree = "<group>"; };
+		E3DD1C3D1EC8F4B200E6F42D /* GamePlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePlayViewController.m; sourceTree = "<group>"; };
+		E3DD1C3F1EC8FA9F00E6F42D /* easyList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = easyList.txt; sourceTree = "<group>"; };
+		E3DD1C401EC8FA9F00E6F42D /* mediumList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mediumList.txt; sourceTree = "<group>"; };
+		E3DD1C411EC8FA9F00E6F42D /* hardList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hardList.txt; sourceTree = "<group>"; };
+		E3DD1C451EC8FAC300E6F42D /* wordlist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wordlist.txt; sourceTree = "<group>"; };
+		E3DD1C471EC8FBC600E6F42D /* WordSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordSelector.h; sourceTree = "<group>"; };
+		E3DD1C481EC8FBC600E6F42D /* WordSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordSelector.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +135,10 @@
 				E3DD1C391EC14AFB00E6F42D /* MCManager.h */,
 				E3DD1C3A1EC14AFB00E6F42D /* MCManager.m */,
 				E3DD1C061EC140BD00E6F42D /* Main.storyboard */,
+				E3DD1C3C1EC8F4B200E6F42D /* GamePlayViewController.h */,
+				E3DD1C3D1EC8F4B200E6F42D /* GamePlayViewController.m */,
+				E3DD1C471EC8FBC600E6F42D /* WordSelector.h */,
+				E3DD1C481EC8FBC600E6F42D /* WordSelector.m */,
 				E3DD1C091EC140BD00E6F42D /* Assets.xcassets */,
 				E3DD1C0B1EC140BD00E6F42D /* LaunchScreen.storyboard */,
 				E3DD1C0E1EC140BD00E6F42D /* Info.plist */,
@@ -132,6 +150,10 @@
 		E3DD1BFD1EC140BD00E6F42D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E3DD1C3F1EC8FA9F00E6F42D /* easyList.txt */,
+				E3DD1C401EC8FA9F00E6F42D /* mediumList.txt */,
+				E3DD1C411EC8FA9F00E6F42D /* hardList.txt */,
+				E3DD1C451EC8FAC300E6F42D /* wordlist.txt */,
 				E3DD1BFE1EC140BD00E6F42D /* main.m */,
 			);
 			name = "Supporting Files";
@@ -264,9 +286,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3DD1C421EC8FA9F00E6F42D /* easyList.txt in Resources */,
+				E3DD1C431EC8FA9F00E6F42D /* mediumList.txt in Resources */,
 				E3DD1C0D1EC140BD00E6F42D /* LaunchScreen.storyboard in Resources */,
+				E3DD1C461EC8FAC300E6F42D /* wordlist.txt in Resources */,
 				E3DD1C0A1EC140BD00E6F42D /* Assets.xcassets in Resources */,
 				E3DD1C081EC140BD00E6F42D /* Main.storyboard in Resources */,
+				E3DD1C441EC8FA9F00E6F42D /* hardList.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,8 +320,10 @@
 				E3DD1C321EC1465200E6F42D /* StartViewController.m in Sources */,
 				E3DD1C3B1EC14AFB00E6F42D /* MCManager.m in Sources */,
 				E3DD1C021EC140BD00E6F42D /* AppDelegate.m in Sources */,
+				E3DD1C3E1EC8F4B200E6F42D /* GamePlayViewController.m in Sources */,
 				E3DD1C381EC1469B00E6F42D /* FindViewController.m in Sources */,
 				E3DD1BFF1EC140BD00E6F42D /* main.m in Sources */,
+				E3DD1C491EC8FBC600E6F42D /* WordSelector.m in Sources */,
 				E3DD1C351EC1466700E6F42D /* SoloViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,6 +564,7 @@
 				E3DD1C291EC140BD00E6F42D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E3DD1C2A1EC140BD00E6F42D /* Build configuration list for PBXNativeTarget "WordZappProTests" */ = {
 			isa = XCConfigurationList;
@@ -544,6 +573,7 @@
 				E3DD1C2C1EC140BD00E6F42D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E3DD1C2D1EC140BD00E6F42D /* Build configuration list for PBXNativeTarget "WordZappProUITests" */ = {
 			isa = XCConfigurationList;
@@ -552,6 +582,7 @@
 				E3DD1C2F1EC140BD00E6F42D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

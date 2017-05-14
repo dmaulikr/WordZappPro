@@ -8,6 +8,8 @@
 
 #import "FindViewController.h"
 #import "AppDelegate.h"
+#import "GamePlayViewController.h"
+
 
 
 @interface FindViewController ()
@@ -153,10 +155,29 @@
     
     NSData *receivedData = [[notification userInfo] objectForKey:@"data"];
     NSString *receivedText = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
-    NSLog(@"The received text is %@",receivedText);
-    _lblStatus.text = receivedText;
+    _theWords = receivedText;
     
-    [_tvChat performSelectorOnMainThread:@selector(setText:) withObject:[_tvChat.text stringByAppendingString:[NSString stringWithFormat:@"%@", receivedText]] waitUntilDone:NO];
+   // NSLog(@"The received text is %@",receivedText);
+   // _lblStatus.text = receivedText;
     
+   [_tvChat performSelectorOnMainThread:@selector(setText:) withObject:[_tvChat.text stringByAppendingString:[NSString stringWithFormat:@"%@", receivedText]] waitUntilDone:NO];
+    
+    
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    /*
+     if ([segue.identifier isEqualToString: @"segueTest" ]) {
+     
+     GamePlayViewController *view = [segue destinationViewController];
+     view.gameLevel = _gameLevel;
+     }
+
+     */
+    if ([segue.identifier isEqualToString:@"segueFindToGamePlay"]) {
+        GamePlayViewController *view = [segue destinationViewController];
+        view.incomingWord = _theWords;
+        
+    }
 }
 @end

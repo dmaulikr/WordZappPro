@@ -29,5 +29,6 @@
 -(void)didReceiveDataWithNotification:(NSNotification *)notification;
 @property (strong, nonatomic) IBOutlet UITextView *tvChat;
 
+@property NSString *theWords;
 
 @end
