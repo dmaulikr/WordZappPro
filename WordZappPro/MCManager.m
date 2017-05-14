@@ -60,6 +60,8 @@
 
 -(void)setupMCBrowser{
     _browser = [[MCBrowserViewController alloc] initWithServiceType:@"words" session:_session];
+    _browser.maximumNumberOfPeers = 1;
+    
 }
 
 

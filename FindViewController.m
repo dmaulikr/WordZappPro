@@ -35,7 +35,7 @@
                                                  name:@"MCDidReceiveDataNotification"
                                                object:nil];
     
-    [_appDelegate.mcManager setupPeerAndSessionWithDisplayName:@"my Device"];
+    [_appDelegate.mcManager setupPeerAndSessionWithDisplayName:[UIDevice currentDevice].name];
     [_appDelegate.mcManager setupMCBrowser];
     [_appDelegate.mcManager advertiseSelf:YES];
     
@@ -103,6 +103,8 @@
     }
     if (state == MCSessionStateConnected) {
         [_arrConnectedDevices addObject:peerDisplayName];
+        NSLog(@"Connected and dismiss");
+        [_appDelegate.mcManager.browser dismissViewControllerAnimated:YES completion:nil];
         
     }
     else if (state == MCSessionStateNotConnected){
