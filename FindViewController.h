@@ -30,5 +30,6 @@
 @property (strong, nonatomic) IBOutlet UITextView *tvChat;
 
 @property NSString *theWords;
+@property NSString *letters;
 
 @end

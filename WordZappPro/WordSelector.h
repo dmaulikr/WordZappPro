@@ -10,15 +10,8 @@
 
 @interface WordSelector : NSObject
 
-@property (strong,nonatomic) NSArray *masterWordList;
-@property (strong,nonatomic) NSArray *activeWordList;
 
-@property NSMutableArray *arrayWordTwo;
-@property NSMutableArray *arrayWordThree;
-@property NSMutableArray *arrayWordFour;
-@property (strong,nonatomic) NSMutableArray *arrayRandomLetters;
-@property (strong, nonatomic)NSMutableArray *arrayLettersInOrder;
++(NSString *)createWords;
++(NSMutableArray *)createArrayOfLetters;
 
-@property (strong,nonatomic) NSString *nameMasterWordList;
-@property (strong,nonatomic) NSString *nameActiveWordList;
 @end

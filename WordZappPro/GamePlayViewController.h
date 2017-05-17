@@ -12,5 +12,12 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblTestWords;
 @property NSString *incomingWord;
 
+@property NSMutableArray *wordLabels;
+@property NSMutableArray *letterButtons;
+
+@property CGFloat screenWidth;
+@property CGFloat screenHeight;
+
+@property (strong,nonatomic) NSMutableArray *arrayRandomLetters;
 
 @end

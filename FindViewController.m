@@ -9,6 +9,8 @@
 #import "FindViewController.h"
 #import "AppDelegate.h"
 #import "GamePlayViewController.h"
+#import "WordSelector.h"
+
 
 
 
@@ -101,18 +103,22 @@
         
         BOOL peersExist = ([[_appDelegate.mcManager.session connectedPeers] count] == 0);
         [_btnDisconnect setEnabled:!peersExist];
-      //  [_txtName setEnabled:peersExist];
+      
     }
     if (state == MCSessionStateConnected) {
         [_arrConnectedDevices addObject:peerDisplayName];
         NSLog(@"Connected and dismiss");
         [_appDelegate.mcManager.browser dismissViewControllerAnimated:YES completion:nil];
+         [_appDelegate.mcManager advertiseSelf:false];
+        
         
     }
     else if (state == MCSessionStateNotConnected){
         if ([_arrConnectedDevices count] > 0) {
             NSInteger indexOfPeer = [_arrConnectedDevices indexOfObject:peerDisplayName];
             [_arrConnectedDevices removeObjectAtIndex:indexOfPeer];
+            NSLog(@"Not connected");
+
         }
     }
 
@@ -120,63 +126,60 @@
 
 -(IBAction)disconnect:(id)sender {
     [_appDelegate.mcManager.session disconnect];
-    
-  //  _txtName.enabled = YES;
-    
     [_arrConnectedDevices removeAllObjects];
     [_tblConnectedDevices reloadData];
     
 }
 - (IBAction)btnSendDataPressed:(id)sender {
     
-    NSString *words = @"One Word";
+    NSMutableArray *arrayOfLetters = [[NSMutableArray alloc]initWithArray:[WordSelector createArrayOfLetters]];
+     //NSString *letters;
     
+    for (int x=0; x<9; x++) {
+       
+        _letters = [NSString stringWithFormat:@"%@%@",_letters,arrayOfLetters[x]];
+
+    }
     
-    NSData *dataToSend = [words dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *dataToSend = [_letters dataUsingEncoding:NSUTF8StringEncoding];
+    
     NSArray *allPeers = _appDelegate.mcManager.session.connectedPeers;
     NSError *error;
     
     [_appDelegate.mcManager.session sendData:dataToSend
                                      toPeers:allPeers
-                                    withMode:MCSessionSendDataReliable
+                                    withMode:MCSessionSendDataUnreliable
                                        error:&error];
     
     if (error) {
         NSLog(@"%@", [error localizedDescription]);
     }
-   
     
-  }
+    NSLog(@"I created these letters %@",_letters);
+    
+     [self performSegueWithIdentifier:@"segueFindToGamePlay" sender:self];
+   }
 
 
 -(void)didReceiveDataWithNotification:(NSNotification *)notification{
    //MCPeerID *peerID = [[notification userInfo] objectForKey:@"peerID"];
    //NSString *peerDisplayName = peerID.displayName;
     
+    
     NSData *receivedData = [[notification userInfo] objectForKey:@"data"];
     NSString *receivedText = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
-    _theWords = receivedText;
+    _letters = receivedText;
     
-   // NSLog(@"The received text is %@",receivedText);
-   // _lblStatus.text = receivedText;
-    
-   [_tvChat performSelectorOnMainThread:@selector(setText:) withObject:[_tvChat.text stringByAppendingString:[NSString stringWithFormat:@"%@", receivedText]] waitUntilDone:NO];
+    [self performSegueWithIdentifier:@"segueFindToGamePlay" sender:self];
     
     
+   
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    /*
-     if ([segue.identifier isEqualToString: @"segueTest" ]) {
-     
-     GamePlayViewController *view = [segue destinationViewController];
-     view.gameLevel = _gameLevel;
-     }
-
-     */
-    if ([segue.identifier isEqualToString:@"segueFindToGamePlay"]) {
+       if ([segue.identifier isEqualToString:@"segueFindToGamePlay"]) {
         GamePlayViewController *view = [segue destinationViewController];
-        view.incomingWord = _theWords;
+        view.incomingWord = _letters;
         
     }
 }
