@@ -24,6 +24,16 @@
     _lblTestWords.text = _incomingWord;
     NSLog(@"The incoming words are %@",_incomingWord);
     
+    _arrayRandomLetters = [[NSMutableArray alloc] init];
+    
+    for (int x = 1; x<10; x++) {
+        NSString *eachLetter = [NSString stringWithFormat:@"%c", [_incomingWord characterAtIndex:x]];
+        [_arrayRandomLetters addObject:eachLetter];
+    }
+    
+    
+    
+    
     [self setUpLetterButtons];
    
     [super viewDidLoad];
@@ -38,7 +48,8 @@
 -(void)setUpLetterButtons{
     
     letterButton *letter;
-    _letterButtons = [[NSMutableArray alloc] init];
+   
+    
     
     
     CGFloat boxWidth = _screenWidth/8;
@@ -63,8 +74,8 @@
         letter.titleLabel.font = [UIFont fontWithName:@"Helvetica" size:boxWidth*.9];
         [letter setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         
-    //    [letter addTarget:self action:@selector(wasDragged:withEvent:)forControlEvents:UIControlEventTouchDragInside];
-     //   [letter addTarget:self action:@selector(dragStopped:) forControlEvents:UIControlEventTouchUpInside];
+        [letter addTarget:self action:@selector(wasDragged:withEvent:)forControlEvents:UIControlEventTouchDragInside];
+        [letter addTarget:self action:@selector(dragStopped:) forControlEvents:UIControlEventTouchUpInside];
         [_letterButtons addObject:letter];
         [self.view addSubview:letter];
     }

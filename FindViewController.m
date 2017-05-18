@@ -141,6 +141,8 @@
 
     }
     
+    
+    
     NSData *dataToSend = [_letters dataUsingEncoding:NSUTF8StringEncoding];
     
     NSArray *allPeers = _appDelegate.mcManager.session.connectedPeers;
