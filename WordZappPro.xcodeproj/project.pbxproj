@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58C499561ECE593E006FED6B /* DefaultsDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C499551ECE593E006FED6B /* DefaultsDataManager.m */; };
 		E3398DF31ECCD578005F3E42 /* letterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3398DF21ECCD578005F3E42 /* letterButton.m */; };
 		E3398DF61ECCD59F005F3E42 /* wordLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3398DF51ECCD59F005F3E42 /* wordLabel.m */; };
 		E3398DF81ECCD76D005F3E42 /* tile.png in Resources */ = {isa = PBXBuildFile; fileRef = E3398DF71ECCD76D005F3E42 /* tile.png */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		58C499541ECE593E006FED6B /* DefaultsDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultsDataManager.h; sourceTree = "<group>"; };
+		58C499551ECE593E006FED6B /* DefaultsDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultsDataManager.m; sourceTree = "<group>"; };
 		E3398DF11ECCD578005F3E42 /* letterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = letterButton.h; sourceTree = "<group>"; };
 		E3398DF21ECCD578005F3E42 /* letterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = letterButton.m; sourceTree = "<group>"; };
 		E3398DF41ECCD59F005F3E42 /* wordLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wordLabel.h; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 		E3DD1BFC1EC140BD00E6F42D /* WordZappPro */ = {
 			isa = PBXGroup;
 			children = (
+				58C499541ECE593E006FED6B /* DefaultsDataManager.h */,
+				58C499551ECE593E006FED6B /* DefaultsDataManager.m */,
 				E3DD1C001EC140BD00E6F42D /* AppDelegate.h */,
 				E3DD1C011EC140BD00E6F42D /* AppDelegate.m */,
 				E3DD1C301EC1465200E6F42D /* StartViewController.h */,
@@ -340,6 +345,7 @@
 				E3DD1BFF1EC140BD00E6F42D /* main.m in Sources */,
 				E3DD1C491EC8FBC600E6F42D /* WordSelector.m in Sources */,
 				E3DD1C351EC1466700E6F42D /* SoloViewController.m in Sources */,
+				58C499561ECE593E006FED6B /* DefaultsDataManager.m in Sources */,
 				E3398DF31ECCD578005F3E42 /* letterButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -136,8 +136,11 @@
      //NSString *letters;
     
     for (int x=0; x<9; x++) {
-       
-        _letters = [NSString stringWithFormat:@"%@%@",_letters,arrayOfLetters[x]];
+        if (x!=0){
+            _letters = [NSString stringWithFormat:@"%@%@",_letters,arrayOfLetters[x]];
+        } else {
+            _letters = [NSString stringWithFormat:@"%@",arrayOfLetters[x]];
+        }
 
     }
     
@@ -166,13 +169,13 @@
 -(void)didReceiveDataWithNotification:(NSNotification *)notification{
    //MCPeerID *peerID = [[notification userInfo] objectForKey:@"peerID"];
    //NSString *peerDisplayName = peerID.displayName;
-    
-    
     NSData *receivedData = [[notification userInfo] objectForKey:@"data"];
     NSString *receivedText = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
     _letters = receivedText;
-    
+    NSLog(@"got text");
+    dispatch_async(dispatch_get_main_queue(), ^{
     [self performSegueWithIdentifier:@"segueFindToGamePlay" sender:self];
+    });
     
     
    
