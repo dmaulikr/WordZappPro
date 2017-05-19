@@ -131,7 +131,7 @@
     
     _nameMasterWordList = @"hardList";
     
-    
+    [self setUpWordLists];
     [self setUpWordLabels];
     [self setUpLetterButtons];
     [self setUpTimerLabel];
@@ -153,6 +153,19 @@
 -(void)viewWillDisappear:(BOOL)animated {
     [self saveHighscore];
 }
+
+
+#pragma mark SET UP WORD LISTS
+-(void)setUpWordLists {
+    NSString *contents = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:_nameMasterWordList ofType:@"txt"] encoding:NSASCIIStringEncoding error:NULL];
+    _masterWordList = [contents componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    
+    contents = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:_nameActiveWordList ofType:@"txt"] encoding:NSASCIIStringEncoding error:NULL];
+    _activeWordList = [contents componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    
+    
+}
+
 
 #pragma mark POSITION LETTERS, WORDS and OTHER LABELS
 
@@ -414,7 +427,7 @@
 }
 
 -(BOOL) checkWords {
-    
+
     NSMutableArray *letters = [[NSMutableArray alloc] init];
     
     for (wordLabel *label in _wordLabels) {
@@ -428,6 +441,7 @@
     NSString *word4 = [NSString stringWithFormat:@"%@%@%@%@", letters[5], letters[6], letters[7], letters[8]];
     NSString *word3 = [NSString stringWithFormat:@"%@%@%@", letters[2], letters[3], letters[4]];
     NSString *word2 = [NSString stringWithFormat:@"%@%@", letters[0], letters[1]];
+    NSLog(@"%@ (%d), %@ (%d), %@ (%d)", word2, [_masterWordList containsObject:word2], word3, [_masterWordList containsObject:word3], word4, [_masterWordList containsObject:word4]);
     
     if ([_masterWordList containsObject:word4]) {
         _light4.backgroundColor = [UIColor greenColor];}
