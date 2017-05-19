@@ -52,18 +52,22 @@
     }
     //END NEW CODE
     
-    
-    UIButton *continueButton = [[UIButton alloc] init];
-    [continueButton setTitle:@"Continue" forState:UIControlStateNormal];
-    [continueButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    continueButton.backgroundColor = [UIColor blackColor];
-    continueButton.frame = CGRectMake(0, _screenHeight - 60, _screenWidth, 60);
-    [self.view addSubview:continueButton];
-    _buttonAgain = continueButton;
-    self.view.backgroundColor = [UIColor colorWithRed:0.63 green:1.00 blue:0.60 alpha:1.0];
-    
     _screenWidth  = [UIScreen mainScreen].bounds.size.width;
     _screenHeight = [UIScreen mainScreen].bounds.size.height;
+    
+    
+    _buttonAgain = [[UIButton alloc] init];
+    [_buttonAgain setTitle:@"Again" forState:UIControlStateNormal];
+    [_buttonAgain setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    _buttonAgain.backgroundColor = [UIColor blackColor];
+    _buttonAgain.frame = CGRectMake(0, _screenHeight - 60, _screenWidth, 60);
+    [_buttonAgain addTarget:self action:@selector(restart:) forControlEvents:UIControlEventAllEvents];
+    
+    [self.view addSubview:_buttonAgain];
+    
+    self.view.backgroundColor = [UIColor colorWithRed:0.63 green:1.00 blue:0.60 alpha:1.0];
+    
+    
     
     
     UIButton *back = [[UIButton alloc] init];
