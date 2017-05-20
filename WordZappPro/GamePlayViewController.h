@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MultipeerConnectivity/MultipeerConnectivity.h>
 
-@interface GamePlayViewController : UIViewController
+
+
+@interface GamePlayViewController : UIViewController <MCSessionDelegate>
+
 @property (strong, nonatomic) IBOutlet UILabel *lblTestWords;
 @property NSString *incomingWord;
 

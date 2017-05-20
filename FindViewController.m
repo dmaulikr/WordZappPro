@@ -16,8 +16,7 @@
 
 @interface FindViewController ()
 
-//@property (nonatomic, strong) NSMutableArray *arrConnectedDevices;
-//@property (nonatomic, strong) AppDelegate *appDelegate;
+
 
 @end
 
@@ -160,7 +159,6 @@
         NSLog(@"%@", [error localizedDescription]);
     }
     
-    NSLog(@"I created these letters %@",_letters);
     
      [self performSegueWithIdentifier:@"segueFindToGamePlay" sender:self];
    }

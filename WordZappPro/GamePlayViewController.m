@@ -11,6 +11,8 @@
 #import "wordLabel.h"
 #import "DefaultsDataManager.h"
 #import "WordSelector.h"
+#import "AppDelegate.h"
+
 
 
 @interface GamePlayViewController ()
@@ -157,6 +159,8 @@
 -(void)viewWillDisappear:(BOOL)animated {
     [self saveHighscore];
 }
+
+
 
 
 #pragma mark SET UP WORD LISTS
@@ -568,6 +572,7 @@
 }
 
 -(IBAction)restart:(id)sender {
+    [_timer invalidate];
     _labelPoints.backgroundColor = [UIColor whiteColor];
     _labelPoints.textColor = [UIColor blackColor];
     _labelPoints.text = [NSString stringWithFormat:@"%i",_points];
@@ -578,14 +583,14 @@
         label.text = @"";
         
     }
-#warning we need to fix this
-    //[self createWords];
+
+    _arrayRandomLetters = [[NSMutableArray alloc] initWithArray:[WordSelector createArrayOfLetters]];
     [self setUpWordLabels];
     [self setUpLetterButtons];
     
     _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerCountDown) userInfo:nil repeats:YES];
     _buttonAgain.enabled = NO;
-    _buttonAgain.alpha = NO;
+    _buttonAgain.alpha = 0;
     
     
     
