@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
+#import "AppDelegate.h"
 
 
 
 @interface GamePlayViewController : UIViewController <MCSessionDelegate>
+
+@property (nonatomic, strong) AppDelegate *appDelegate;
+-(void)didReceiveDataWithNotification:(NSNotification *)notification;
+
 
 @property (strong, nonatomic) IBOutlet UILabel *lblTestWords;
 @property NSString *incomingWord;

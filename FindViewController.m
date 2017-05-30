@@ -109,6 +109,7 @@
         NSLog(@"Connected and dismiss");
         [_appDelegate.mcManager.browser dismissViewControllerAnimated:YES completion:nil];
          [_appDelegate.mcManager advertiseSelf:false];
+       
         
         
     }
@@ -183,6 +184,7 @@
        if ([segue.identifier isEqualToString:@"segueFindToGamePlay"]) {
         GamePlayViewController *view = [segue destinationViewController];
         view.incomingWord = _letters;
+           [[NSNotificationCenter defaultCenter] removeObserver:self];
         
     }
 }
