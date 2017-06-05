@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zh1-Jr-Lq2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Zh1-Jr-Lq2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -137,7 +137,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play"/>
                                 <connections>
-                                    <segue destination="TWW-Ca-sNv" kind="show" identifier="segueFindToGamePlay" id="dP4-Yd-S2y"/>
+                                    <segue destination="L8z-Yl-rhF" kind="show" id="TaJ-av-D5P"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="f3E-pF-5IT">
@@ -160,6 +160,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DiV-E6-ejz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1608.8" y="602.24887556221893"/>
+        </scene>
+        <!--Head To Head Game View Controller-->
+        <scene sceneID="HV5-dh-EPf">
+            <objects>
+                <viewController id="L8z-Yl-rhF" customClass="HeadToHeadGameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GYD-YD-xND"/>
+                        <viewControllerLayoutGuide type="bottom" id="tMJ-0u-WBf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hJf-jP-pd5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Head To Head" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MX5-mq-hup">
+                                <rect key="frame" x="133" y="308" width="109" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MX5-mq-hup" firstAttribute="centerY" secondItem="hJf-jP-pd5" secondAttribute="centerY" id="1cW-BN-dAx"/>
+                            <constraint firstItem="MX5-mq-hup" firstAttribute="centerX" secondItem="hJf-jP-pd5" secondAttribute="centerX" id="D2i-qp-hPI"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h6D-hj-rGb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2575" y="602"/>
         </scene>
         <!--Game Play View Controller-->
         <scene sceneID="Cf3-GH-2a5">
@@ -189,7 +219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vug-e2-V3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2476" y="288.30584707646182"/>
+            <point key="canvasLocation" x="2535" y="-121"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ks0-fW-Wc4">

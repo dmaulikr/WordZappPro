@@ -11,6 +11,8 @@
 		E3398DF31ECCD578005F3E42 /* letterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3398DF21ECCD578005F3E42 /* letterButton.m */; };
 		E3398DF61ECCD59F005F3E42 /* wordLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3398DF51ECCD59F005F3E42 /* wordLabel.m */; };
 		E3398DF81ECCD76D005F3E42 /* tile.png in Resources */ = {isa = PBXBuildFile; fileRef = E3398DF71ECCD76D005F3E42 /* tile.png */; };
+		E34454851EDE5C3E00D8A036 /* HeadToHeadGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E34454841EDE5C3E00D8A036 /* HeadToHeadGameViewController.m */; };
+		E3C344EA1EE20CA100690D4C /* CommonGamePlayMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C344E91EE20CA100690D4C /* CommonGamePlayMethods.m */; };
 		E3DD1BFF1EC140BD00E6F42D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DD1BFE1EC140BD00E6F42D /* main.m */; };
 		E3DD1C021EC140BD00E6F42D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DD1C011EC140BD00E6F42D /* AppDelegate.m */; };
 		E3DD1C081EC140BD00E6F42D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3DD1C061EC140BD00E6F42D /* Main.storyboard */; };
@@ -55,6 +57,10 @@
 		E3398DF41ECCD59F005F3E42 /* wordLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wordLabel.h; sourceTree = "<group>"; };
 		E3398DF51ECCD59F005F3E42 /* wordLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wordLabel.m; sourceTree = "<group>"; };
 		E3398DF71ECCD76D005F3E42 /* tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile.png; sourceTree = "<group>"; };
+		E34454831EDE5C3E00D8A036 /* HeadToHeadGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadToHeadGameViewController.h; sourceTree = "<group>"; };
+		E34454841EDE5C3E00D8A036 /* HeadToHeadGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadToHeadGameViewController.m; sourceTree = "<group>"; };
+		E3C344E81EE20CA100690D4C /* CommonGamePlayMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonGamePlayMethods.h; sourceTree = "<group>"; };
+		E3C344E91EE20CA100690D4C /* CommonGamePlayMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonGamePlayMethods.m; sourceTree = "<group>"; };
 		E3DD1BFA1EC140BD00E6F42D /* WordZappPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordZappPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3DD1BFE1EC140BD00E6F42D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E3DD1C001EC140BD00E6F42D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -135,6 +141,7 @@
 		E3DD1BFC1EC140BD00E6F42D /* WordZappPro */ = {
 			isa = PBXGroup;
 			children = (
+				E3DD1C061EC140BD00E6F42D /* Main.storyboard */,
 				58C499541ECE593E006FED6B /* DefaultsDataManager.h */,
 				58C499551ECE593E006FED6B /* DefaultsDataManager.m */,
 				E3DD1C001EC140BD00E6F42D /* AppDelegate.h */,
@@ -142,14 +149,17 @@
 				E3DD1C301EC1465200E6F42D /* StartViewController.h */,
 				E3DD1C311EC1465200E6F42D /* StartViewController.m */,
 				E3DD1C331EC1466700E6F42D /* SoloViewController.h */,
+				E3C344E81EE20CA100690D4C /* CommonGamePlayMethods.h */,
+				E3C344E91EE20CA100690D4C /* CommonGamePlayMethods.m */,
 				E3DD1C341EC1466700E6F42D /* SoloViewController.m */,
 				E3DD1C361EC1469B00E6F42D /* FindViewController.h */,
 				E3DD1C371EC1469B00E6F42D /* FindViewController.m */,
 				E3DD1C391EC14AFB00E6F42D /* MCManager.h */,
 				E3DD1C3A1EC14AFB00E6F42D /* MCManager.m */,
-				E3DD1C061EC140BD00E6F42D /* Main.storyboard */,
 				E3DD1C3C1EC8F4B200E6F42D /* GamePlayViewController.h */,
 				E3DD1C3D1EC8F4B200E6F42D /* GamePlayViewController.m */,
+				E34454831EDE5C3E00D8A036 /* HeadToHeadGameViewController.h */,
+				E34454841EDE5C3E00D8A036 /* HeadToHeadGameViewController.m */,
 				E3398DF11ECCD578005F3E42 /* letterButton.h */,
 				E3398DF21ECCD578005F3E42 /* letterButton.m */,
 				E3398DF41ECCD59F005F3E42 /* wordLabel.h */,
@@ -337,11 +347,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3DD1C321EC1465200E6F42D /* StartViewController.m in Sources */,
+				E34454851EDE5C3E00D8A036 /* HeadToHeadGameViewController.m in Sources */,
 				E3DD1C3B1EC14AFB00E6F42D /* MCManager.m in Sources */,
 				E3398DF61ECCD59F005F3E42 /* wordLabel.m in Sources */,
 				E3DD1C021EC140BD00E6F42D /* AppDelegate.m in Sources */,
 				E3DD1C3E1EC8F4B200E6F42D /* GamePlayViewController.m in Sources */,
 				E3DD1C381EC1469B00E6F42D /* FindViewController.m in Sources */,
+				E3C344EA1EE20CA100690D4C /* CommonGamePlayMethods.m in Sources */,
 				E3DD1BFF1EC140BD00E6F42D /* main.m in Sources */,
 				E3DD1C491EC8FBC600E6F42D /* WordSelector.m in Sources */,
 				E3DD1C351EC1466700E6F42D /* SoloViewController.m in Sources */,
