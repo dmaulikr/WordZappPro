@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "letterButton.h"
+
 
 
 @interface CommonGamePlayMethods : NSObject
@@ -23,6 +25,13 @@
 -(NSMutableArray *)setUpLetterButtons;
 -(NSMutableArray *)setUpWordLabels;
 
+-(IBAction)wasDragged: (UIButton *)button withEvent: (UIEvent *)event;
+-(IBAction)dragStopped:(letterButton *)sender;
+
+-(BOOL)checkAllWords;
+
+
+
 
 -(CommonGamePlayMethods *)initWithView:(UIView *) view;
 
@@ -30,11 +39,13 @@
 @property (strong,nonatomic) UILabel *light3;
 @property (strong,nonatomic) UILabel *light4;
 
+@property (strong,nonatomic) NSMutableArray *arrayWordLabels;
 
-//@property (strong,nonatomic) NSArray *masterWordList;
-//@property (strong,nonatomic) NSArray *activeWordList;
-//@property (strong,nonatomic) NSString *nameMasterWordList;
-//@property (strong,nonatomic) NSString *nameActiveWordList;
+
+@property (strong,nonatomic) NSArray *masterWordList;
+@property (strong,nonatomic) NSArray *activeWordList;
+@property (strong,nonatomic) NSString *nameMasterWordList;
+@property (strong,nonatomic) NSString *nameActiveWordList;
 
 
 @end

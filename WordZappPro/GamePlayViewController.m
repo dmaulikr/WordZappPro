@@ -411,6 +411,7 @@
     CGFloat tolerance = sender.frame.size.width/1.5;
     
     
+    
     sender.linkedLabel.linkedButton = nil;
     sender.linkedLabel = nil;
     
@@ -420,6 +421,7 @@
                 sender.frame = label.frame;
                 sender.linkedLabel = label;
                 label.linkedButton = sender;
+               
             }
         }
     }
@@ -617,9 +619,6 @@
         
         
     }
-    
-    
-    
 }
 
 -(void)winSplash {

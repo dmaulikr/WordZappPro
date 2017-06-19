@@ -137,7 +137,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play"/>
                                 <connections>
-                                    <segue destination="L8z-Yl-rhF" kind="show" id="TaJ-av-D5P"/>
+                                    <action selector="btnPlayPressed:" destination="vUC-as-zuX" eventType="touchUpInside" id="aV1-79-TrV"/>
+                                    <segue destination="L8z-Yl-rhF" kind="show" identifier="segueFindToHeadToHead" id="TaJ-av-D5P"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="f3E-pF-5IT">

@@ -7,11 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonGamePlayMethods.h"
+
 
 @interface HeadToHeadGameViewController : UIViewController
 
 @property (strong,nonatomic) NSArray *activeWordList;
 
 @property (strong,nonatomic)NSMutableArray *arrayWordLabels;
+@property (strong,nonatomic)NSMutableArray *arrayRandomLetters;
+
+
+@property (strong, nonatomic)NSString *nameMasterWordList;
+@property (strong, nonatomic)NSMutableArray *masterWordList;
+@property (strong, nonatomic)NSString *incomingLetters;
+@property CommonGamePlayMethods *calledMethod;
+
 
 @end

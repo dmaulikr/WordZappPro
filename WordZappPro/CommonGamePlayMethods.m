@@ -8,7 +8,7 @@
 
 #import "CommonGamePlayMethods.h"
 #import "letterButton.h"
-#import "wordLabel.h";
+#import "wordLabel.h"
 
 
 
@@ -24,23 +24,21 @@
 }
 
 +(NSArray *)setUpWordLists {
-    NSString *nameMasterWordList;
-    NSString *nameActiveWordList;
+    NSString *nameMasterWordList =  @"hardList";
+    
+    NSString *nameActiveWordList = @"easyList";
     NSString *contents = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:nameMasterWordList ofType:@"txt"] encoding:NSASCIIStringEncoding error:NULL];
-    NSArray *masterWordList = [contents componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+   // NSArray *masterWordList = [contents componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
     
     contents = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:nameActiveWordList ofType:@"txt"] encoding:NSASCIIStringEncoding error:NULL];
-//    _activeWordList = [contents componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    NSArray *activeWordList = [contents componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
     
-   // return _activeWordList;
-    return  [contents componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+   return activeWordList;
     
 }
 
 -(NSArray *)setUpLights {
     
-    
-    NSLog(@"setting up lights...");
   //  CGFloat screenWidth = _view.frame.size.width;
     CGFloat screenHeight = _view.frame.size.height;
     CGFloat boxWidth = _screenWidth/10;
@@ -113,6 +111,8 @@
     return letterButtons;
 }
 
+
+
 -(IBAction)wasDragged: (UIButton *)button withEvent: (UIEvent *)event {
     UITouch *touch = [[event touchesForView:button]anyObject];
     CGPoint previousLocation = [touch previousLocationInView:button];
@@ -123,8 +123,60 @@
     [self.view bringSubviewToFront:button];
 }
 
+-(float)distanceBetween:(CGRect )rect and: (CGRect ) rect2 {
+    
+    float deltaX = (rect.origin.x + rect.size.width/2) - (rect2.origin.x + rect.size.width/2);
+    float deltaY = (rect.origin.y + rect.size.height/2) - (rect2.origin.y + rect.size.height/2);
+    
+    float deltaP = sqrtf(deltaX*deltaX + deltaY*deltaY);
+    
+    
+    return fabsf(deltaP);
+}
+
+
+-(IBAction)dragStopped:(letterButton *)sender {
+    
+    CGFloat tolerance = sender.frame.size.width/1.5;
+   
+    
+    
+    sender.linkedLabel.linkedButton = nil;
+    sender.linkedLabel = nil;
+    
+    for (wordLabel *label in _arrayWordLabels) {
+        if ([self distanceBetween:sender.frame and:label.frame] < tolerance) {
+            if (label.linkedButton == nil) {
+                sender.frame = label.frame;
+                sender.linkedLabel = label;
+                label.linkedButton = sender;
+                
+            }
+        }
+    }
+      //  if ([self checkAllWords]) {
+           // [_timer invalidate];
+            //[self stopButtons];
+    
+    
+    
+//            if (_startTimerValue>0) {
+//                _points = _points + 60 +_startTimerValue;
+//                _startTimerValue = _startTimerValue + 30;
+//                _labelPoints.text = [NSString stringWithFormat:@"%i",_points];
+//                _buttonAgain.enabled = YES;
+//                _buttonAgain.alpha = 1;
+//    
+//                [self winSplash];
+//    
+//            }
+        
+
+}
+
+
 -(NSMutableArray *)setUpWordLabels {
-    NSMutableArray *arrayWordLabels = [[NSMutableArray alloc] init];
+    _arrayWordLabels = [[NSMutableArray alloc] init];
     wordLabel *word =[[wordLabel alloc] init];
     CGFloat boxWidth = _screenWidth/8;
     CGFloat boxHeight = boxWidth;
@@ -154,12 +206,62 @@
         
         word.backgroundColor = [UIColor whiteColor];
         
-        [arrayWordLabels addObject:word];
+        [_arrayWordLabels addObject:word];
         [self.view addSubview:word];
         
         
     }
-    return arrayWordLabels;
+    
+    return _arrayWordLabels;
+    
+}
+
+-(BOOL)checkAllWords {
+    
+    NSMutableArray *letters = [[NSMutableArray alloc] init];
+    
+    for (wordLabel *label in _arrayWordLabels) {
+        if (label.linkedButton.titleLabel.text != nil) {
+            [letters addObject:label.linkedButton.titleLabel.text];
+            NSLog(@"here");
+        } else {
+            [letters addObject:@" -"];
+            NSLog(@"There");
+        }
+    }
+    NSLog(@"The word label array is %@",_arrayWordLabels);
+   
+    NSString *word4 = [NSString stringWithFormat:@"%@%@%@%@", letters[5], letters[6], letters[7], letters[8]];
+    NSString *word3 = [NSString stringWithFormat:@"%@%@%@", letters[2], letters[3], letters[4]];
+    NSString *word2 = [NSString stringWithFormat:@"%@%@", letters[0], letters[1]];
+    
+    NSLog(@"%@ (%d), %@ (%d), %@ (%d)", word2, [_masterWordList containsObject:word2], word3, [_masterWordList containsObject:word3], word4, [_masterWordList containsObject:word4]);
+    
+    if ([_masterWordList containsObject:word4]) {
+        _light4.backgroundColor = [UIColor greenColor];}
+    else {
+        _light4.backgroundColor = [UIColor redColor];
+        
+    }
+    
+    
+    if ([_masterWordList containsObject:word3]) {
+        _light3.backgroundColor = [UIColor greenColor];}
+    else {
+        _light3.backgroundColor = [UIColor redColor];
+        
+    }
+    
+    if ([_masterWordList containsObject:word2]) {
+        _light2.backgroundColor = [UIColor greenColor];}
+    else {
+        _light2.backgroundColor = [UIColor redColor];
+        
+    }
+    
+    
+    return ([_masterWordList containsObject:word4] && [_masterWordList containsObject:word3] && [_masterWordList containsObject:word2]);
+    
 }
 
 

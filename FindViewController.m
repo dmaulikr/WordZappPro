@@ -8,8 +8,10 @@
 
 #import "FindViewController.h"
 #import "AppDelegate.h"
-#import "GamePlayViewController.h"
+//#import "GamePlayViewController.h"
 #import "WordSelector.h"
+#import "HeadToHeadGameViewController.h"
+
 
 
 
@@ -166,14 +168,13 @@
 
 
 -(void)didReceiveDataWithNotification:(NSNotification *)notification{
-   //MCPeerID *peerID = [[notification userInfo] objectForKey:@"peerID"];
-   //NSString *peerDisplayName = peerID.displayName;
+   
     NSData *receivedData = [[notification userInfo] objectForKey:@"data"];
     NSString *receivedText = [[NSString alloc] initWithData:receivedData encoding:NSUTF8StringEncoding];
     _letters = receivedText;
     NSLog(@"got text");
     dispatch_async(dispatch_get_main_queue(), ^{
-    [self performSegueWithIdentifier:@"segueFindToGamePlay" sender:self];
+    [self performSegueWithIdentifier:@"segueFindToHeadToHead" sender:self];
     });
     
     
@@ -181,11 +182,30 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-       if ([segue.identifier isEqualToString:@"segueFindToGamePlay"]) {
-        GamePlayViewController *view = [segue destinationViewController];
-        view.incomingWord = _letters;
+       if ([segue.identifier isEqualToString:@"segueFindToHeadToHead"]) {
+        HeadToHeadGameViewController *view = [segue destinationViewController];
+        view.incomingLetters= _letters;
+           
+           NSLog(@"the outgoing letters are %@",_letters);
            [[NSNotificationCenter defaultCenter] removeObserver:self];
         
     }
+}
+- (IBAction)btnPlayPressed:(id)sender {
+    NSMutableArray *arrayOfLetters = [[NSMutableArray alloc]initWithArray:[WordSelector createArrayOfLetters]];
+    //NSString *letters;
+    
+    for (int x=0; x<9; x++) {
+        if (x!=0){
+            _letters = [NSString stringWithFormat:@"%@%@",_letters,arrayOfLetters[x]];
+        } else {
+            _letters = [NSString stringWithFormat:@"%@",arrayOfLetters[x]];
+        }
+        
+    }
+    
+    
+
+    [self performSegueWithIdentifier:@"segueFindToHeadToHead" sender:self];
 }
 @end

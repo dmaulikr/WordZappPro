@@ -32,4 +32,7 @@
 @property NSString *theWords;
 @property NSString *letters;
 
+- (IBAction)btnPlayPressed:(id)sender;
+
+
 @end
